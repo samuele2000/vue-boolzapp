@@ -1,0 +1,50 @@
+:root{
+    --grey-color: #E6E7EA;
+    --lightgrey-color: #F8F9FC
+    --icon-color: #A7A8AA;
+    --skyblu-color: #8FD6FA;
+    --font-size-08: 0.8em;
+}
+
+
+#container{
+    height: 100vh;
+    border: 2px solid red;
+}
+.col-4{
+    border: 2px solid green;
+}
+
+.col-8{
+     border: 2px solid blue;
+}
+.img-utente{
+    width: 20%;
+    border-radius: 50%;
+}
+
+.bg_color-grey{
+    background-color: var(--grey-color);
+}
+.bg_color-skyblu{
+    background-color: var(--skyblu-color);
+}
+
+.icon_color{
+    color: #A7A8AA;
+}
+.bell{
+    border-radius: 50%;
+    background-color: #fff;
+    padding: 15px;
+    color: var(--skyblu-color);
+}
+.f-08{
+    font-size: var(--font-size-08);
+}
+.input-group-text{
+    background-color: transparent !important; 
+}
+.bg_color-lightgrey{
+    background-color: #F8F9FC;
+}
