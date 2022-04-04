@@ -1,6 +1,6 @@
 :root{
     --grey-color: #E6E7EA;
-    --lightgrey-color: #F8F9FC
+    --lightgrey-color: #F8F9FC;
     --icon-color: #A7A8AA;
     --skyblu-color: #8FD6FA;
     --green-color: #D3F6BA;
@@ -71,6 +71,12 @@ ul{
 }
 .bg_color-lightgrey-2{
     background-color: var(--lightgrey2-color);
+}
+.scroll{
+    overflow-y: auto;
+}
+.border_grey{
+    color: var(--icon-color) !important;
 }
 
 
