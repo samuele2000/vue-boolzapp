@@ -3,24 +3,32 @@
     --lightgrey-color: #F8F9FC
     --icon-color: #A7A8AA;
     --skyblu-color: #8FD6FA;
+    --green-color: #D3F6BA;
+    --lightgrey2-color: #F0EBEA;
     --font-size-08: 0.8em;
 }
 
 
-#container{
-    height: 100vh;
-    border: 2px solid red;
-}
-.col-4{
-    border: 2px solid green;
+.back-color{
+    background-image: linear-gradient(to bottom,
+    #318A7E 0vh,
+    #318A7E 15vh,
+    #D7D6CF 15vh,
+    #D3D6D2 50vh,
+    #D1D6D4 75vh,
+    #CCD6D9 100vh);
 }
 
-.col-8{
-     border: 2px solid blue;
+#container{
+    height: 100vh;
 }
+
 .img-utente{
-    width: 20%;
+    width: 50px;
     border-radius: 50%;
+}
+.bg_color-white{
+    background-color: #fff;
 }
 
 .bg_color-grey{
@@ -48,3 +56,21 @@
 .bg_color-lightgrey{
     background-color: #F8F9FC;
 }
+
+ul{
+    list-style-type: none;     
+}
+.chat{
+    background-image: url(../img/mine.jpg);
+}
+.send{
+    background-color: var(--green-color);
+}
+.received{
+    background-color: #fff;
+}
+.bg_color-lightgrey-2{
+    background-color: var(--lightgrey2-color);
+}
+
+
