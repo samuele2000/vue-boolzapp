@@ -166,8 +166,12 @@ var app = new Vue({
             },
         ],
         indexUtent: 0,
+        newMessage: '',
+        messaggi: [],
+        messaggioReply: [],
     },
     
+
          
 
     methods: {
@@ -175,24 +179,34 @@ var app = new Vue({
         indexChange: function(index){
             this.indexUtent = index;
             console.log(`questo è l'indice ${this.indexUtent}`)
-        }
-    }
+        },
+
+        addMessage: function(){
+            let objMessage = {
+                // date: this.dateComplete, 
+                message: this.newMessage,
+                status: 'sent',
+            }
+            if(!this.newMessage == ''){
+                this.messaggi.push(objMessage)
+
+                this.newMessage = '' 
+            }
+
+            setTimeout(this.messageReply, 3000)
     
+        }, 
+        
+         messageReply: function(){
+            let objMessageReceived = {
+                // date: this.dateComplete, 
+                message: 'okay',
+                status: 'received',
+            }
+            this.messaggioReply.push(objMessageReceived)
+        }
+    }   
 })
 
 
 
-
-
-
-
-
-
-
-
-
-
-//milestone 2 
-//creare una funzione per creare un indice dinamico this.indexChange = index
-//fare un v-for nella chat di destra con (in contacts[indexChange])
-//utilizzare il ternario nella classe per capire il messaggio è stato inviato o ricevuto.
