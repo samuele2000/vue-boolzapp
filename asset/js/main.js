@@ -163,8 +163,36 @@ var app = new Vue({
                         status: 'received'
                     }
                 ],
-            }
-        ]
+            },
+        ],
+        indexUtent: 0,
+    },
+    
+         
+
+    methods: {
+        //funzione per prendere l'index degli utenti
+        indexChange: function(index){
+            this.indexUtent = index;
+            console.log(`questo è l'indice ${this.indexUtent}`)
+        }
     }
     
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+//milestone 2 
+//creare una funzione per creare un indice dinamico this.indexChange = index
+//fare un v-for nella chat di destra con (in contacts[indexChange])
+//utilizzare il ternario nella classe per capire il messaggio è stato inviato o ricevuto.
