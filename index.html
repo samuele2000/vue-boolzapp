@@ -64,6 +64,7 @@
                                     <img class="img-utente" :src="`./asset/img/avatar${element.avatar}.jpg`"
                                         :alt="`foto di ${element.name}`">
                                     <span>{{element.name}}</span>
+                                    <span></span>
                                 </div>
                             </li>
                         </ul>
@@ -94,7 +95,8 @@
                     <!-- sezione chat -->
                     <div class="chat h-100 scroll">
                         <ul class="d-flex flex-column p-4">
-                            <li class="px-2 py-1 rounded mb-3" v-for="(element, index) in contacts[indexUtent].messages"
+                            <li class="px-2 py-1 rounded mb-3" 
+                            v-for="(element, index) in contacts[indexUtent].messages"
                                 :class="(element.status == 'sent') ? 'send align-self-end' : 'received align-self-start'">
                                 <!-- dropdown -->
                                 <div class="d-flex align-items-center">

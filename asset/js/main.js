@@ -169,15 +169,16 @@ var app = new Vue({
         newMessage: '',
         searchText: '',
         indexMessage: 0,
+        lastMessage: [],
+  
     },
-    
-         
 
     methods: {
         //funzione per prendere l'index degli utenti
         indexChange: function(index){
             this.indexUtent = index;
         },
+
 
         addMessage: function(){
             let currentDate = dayjs().format('DD/MM/YYYY');
@@ -229,7 +230,15 @@ var app = new Vue({
             this.indexMessage = index
             console.log(this.indexMessage)  
             this.contacts[this.indexUtent].messages.splice(this.indexMessage, 1)
-        },     
+        },
+
+        addLastMessage: function(){
+            this.contacts.forEach(element => {
+                let last = (element.messages.length) - 1
+                this.lastMessage.push(element.messages[last])
+            });
+            console.log(this.lastMessage)
+        }
        
     }   
 })
