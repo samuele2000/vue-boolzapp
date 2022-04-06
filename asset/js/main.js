@@ -167,11 +167,9 @@ var app = new Vue({
         ],
         indexUtent: 0,
         newMessage: '',
-        messaggi: [],
-        messaggioReply: [],
+        searchText: '',
     },
     
-
          
 
     methods: {
@@ -182,29 +180,44 @@ var app = new Vue({
         },
 
         addMessage: function(){
+            let currentDate = dayjs().format('DD/MM/YYYY');
+            let hour = dayjs().get('hour');
+            let minute = dayjs().get('minute')
+
             let objMessage = {
-                // date: this.dateComplete, 
+                date: `${currentDate} ${hour}:${minute}`, 
                 message: this.newMessage,
                 status: 'sent',
             }
+
+            let objMessageReceived = {
+                date: `${currentDate} ${hour}:${minute}`, 
+                message: 'okay',
+                status: 'received',
+            }
             if(!this.newMessage == ''){
-                this.messaggi.push(objMessage)
+                this.contacts[this.indexUtent].messages.push(objMessage)
 
                 this.newMessage = '' 
             }
 
-            setTimeout(this.messageReply, 3000)
-    
-        }, 
+            setTimeout(
+                this.contacts[this.indexUtent].messages.push(objMessageReceived)
+            ,3000)
+        },
         
-         messageReply: function(){
-            let objMessageReceived = {
-                // date: this.dateComplete, 
-                message: 'okay',
-                status: 'received',
-            }
-            this.messaggioReply.push(objMessageReceived)
-        }
+        search: function(){
+            this.contacts.forEach(element => {
+                if( element.name.toLowerCase().includes(this.searchText)){
+                    element.visible = true
+                } else {
+                    element.visible = false
+                }
+            });
+            console.log(this.searchText)
+            console.log(this.contacts.visible)
+                
+        }        
     }   
 })
 

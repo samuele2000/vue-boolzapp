@@ -78,4 +78,12 @@ ul{
     color: var(--icon-color) !important;
 }
 
+.btn{
+    padding: 0 !important;
+}
+
+.d-none{
+    display: none;
+}
+
 
