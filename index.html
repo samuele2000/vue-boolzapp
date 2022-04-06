@@ -52,8 +52,7 @@
                                 class="fa-solid fa-magnifying-glass icon_color"></i></span>
                         <input type="text" class="form-control" aria-label="Sizing example input"
                             aria-describedby="inputGroup-sizing-sm" placeholder="Cerca o inizia una nuova chat"
-                            v-model="searchText"
-                            @keyup="search">
+                            v-model="searchText" @keyup="search">
                     </div>
 
                     <!-- sezione utenti -->
@@ -95,11 +94,27 @@
                     <!-- sezione chat -->
                     <div class="chat h-100 scroll">
                         <ul class="d-flex flex-column p-4">
-                            <li class="p-2 rounded mb-3" v-for="element in contacts[indexUtent].messages"
+                            <li class="px-2 py-1 rounded mb-3" v-for="(element, index) in contacts[indexUtent].messages"
                                 :class="(element.status == 'sent') ? 'send align-self-end' : 'received align-self-start'">
-                                <span>{{element.message}}</span>
-                                <span class="d-block text-end f-08">{{element.date}}</span>
+                                <!-- dropdown -->
+                                <div class="d-flex align-items-center">
+                                    <span>{{element.message}}</span>
+                                    <div class="dropdown ms-5">
+                                        <button class="btn icon_color dropdown-toggle custom" type="button"
+                                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                        </button>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item" href="#">Info</a></li>
+                                            <li><a class="dropdown-item" href="#" 
+                                                @click="deleteMessage(index)">Elimina messaggio</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+
+                                <span class="d-block text-end f-08 icon_color">{{element.date}}</span>
                             </li>
+                        </ul>
                     </div>
 
                     <!-- sezione scrittura messaggio -->

@@ -168,6 +168,7 @@ var app = new Vue({
         indexUtent: 0,
         newMessage: '',
         searchText: '',
+        indexMessage: 0,
     },
     
          
@@ -176,7 +177,6 @@ var app = new Vue({
         //funzione per prendere l'index degli utenti
         indexChange: function(index){
             this.indexUtent = index;
-            console.log(`questo è l'indice ${this.indexUtent}`)
         },
 
         addMessage: function(){
@@ -224,7 +224,13 @@ var app = new Vue({
             console.log(this.searchText)
             console.log(this.contacts.visible)
                 
-        }        
+        },
+        deleteMessage: function(index){
+            this.indexMessage = index
+            console.log(this.indexMessage)  
+            this.contacts[this.indexUtent].messages.splice(this.indexMessage, 1)
+        },     
+       
     }   
 })
 
