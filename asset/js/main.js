@@ -189,21 +189,28 @@ var app = new Vue({
                 message: this.newMessage,
                 status: 'sent',
             }
+            
+
+            if(!this.newMessage == ''){
+                this.contacts[this.indexUtent].messages.push(objMessage)
+
+                this.newMessage = '' 
+            }
+            setTimeout(this.messageReceived, 3000)
+        },
+
+        messageReceived: function(){
+            let currentDate = dayjs().format('DD/MM/YYYY');
+            let hour = dayjs().get('hour');
+            let minute = dayjs().get('minute')
 
             let objMessageReceived = {
                 date: `${currentDate} ${hour}:${minute}`, 
                 message: 'okay',
                 status: 'received',
             }
-            if(!this.newMessage == ''){
-                this.contacts[this.indexUtent].messages.push(objMessage)
-
-                this.newMessage = '' 
-            }
-
-            setTimeout(
-                this.contacts[this.indexUtent].messages.push(objMessageReceived)
-            ,3000)
+            this.contacts[this.indexUtent].messages.push(objMessageReceived)
+            
         },
         
         search: function(){
